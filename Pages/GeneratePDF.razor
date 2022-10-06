@@ -4,15 +4,19 @@
 
 <PageTitle>Create PDF</PageTitle>
 
-<h1>Adicionar PDF</h1>
+<h1>Gerar PDF</h1>
+Adicione o que deseja gerar em formato HTML e clique em "Gerar PDF"
 
 <div class="form-outline">
-    <textarea class="form-control w-50" id="htmltopdf" rows="8" cols="16" @bind="htmlString"></textarea>
-    <button class="btn btn-primary mt-4" @onclick="CreatePDF">Create PDF</button>
+    <br />
+    <textarea class="form-control w-50" id="htmltopdf" rows="8" cols="16" @bind="htmlString">
+    </textarea>
+    <button class="btn btn-primary mt-4" @onclick="CreatePDF">Gerar PDF</button>
 </div>
 
 @code {
     private string htmlString { get; set; } = default!;
+
 
     private async Task CreatePDF()
     {
@@ -25,3 +29,4 @@
         await JS.InvokeVoidAsync("SubmitHTML", "ironpdf.pdf", Content);
     }
 }
+
